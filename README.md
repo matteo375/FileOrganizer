@@ -18,7 +18,7 @@ Questo script consente di:
 
 Apri il terminale nella cartella del progetto.
 Esegui il file FileOrganizer.py con Python:
-
+```bash
 python FileOrganizer.py
 All'avvio, inserisci il percorso preciso della cartella su cui desideri lavorare. Il sistema verificherà subito che la directory sia esistente e valida.
 
@@ -37,7 +37,6 @@ cs: crea una copia di backup esatta della cartella di lavoro, posizionandola in 
 e: chiude in modo sicuro i processi ed esce dal programma.
 
 🧠 Dettagli tecnici
-
 Lo script utilizza esclusivamente moduli nativi della libreria standard di Python, garantendo la massima compatibilità senza richiedere installazioni di terze parti:
 
 os: utilizzato per mappare i percorsi, verificare la validità delle cartelle, scansionare l'albero delle directory con os.walk e calcolare i pesi dei singoli file.
@@ -49,7 +48,6 @@ sys: sfruttato per gestire la terminazione pulita dello script all'uscita dell'u
 Il sistema include una robusta gestione delle eccezioni (PermissionError, FileNotFoundError, OSError), assicurando che il programma non crashi mai in caso di file di sistema protetti o bloccati, notificando l'utente e proseguendo il lavoro.
 
 💡 Esempio d'uso
-
 Avvia il programma e digita il percorso della tua cartella disordinata (es: C:\Utenti\Nome\Download).
 
 Scegli l'opzione oi dal menu principale.
@@ -59,7 +57,6 @@ Il programma mostrerà a schermo l'elenco dei file rilevati con le relative este
 Al termine del processo, all'interno della cartella troverai i tuoi file perfettamente suddivisi in cartelle ordinate come Documenti, Immagini, Codice_Sorgente o Altri_File.
 
 🛠️ Possibili modifiche future
-
 Questa versione è già estremamente stabile e performante, ma può essere espansa con nuove funzioni avanzate:
 
 implementare un sistema di logging automatico su file .log per tenere traccia di ogni file spostato o eliminato.
@@ -73,7 +70,6 @@ sviluppare un'interfaccia grafica moderna (GUI) in aggiunta alla modalità da ri
 integrare un sistema di compressione automatico che converte in formato .zip o .rar le cartelle archiviate.
 
 ✅ Perché usare
-
 è nativo, leggero e sicuro: non richiede pacchetti esterni o connessione internet.
 
 previene le distrazioni dell'utente convertendo gli input e accettando percorsi puliti dalle virgolette.
@@ -83,11 +79,9 @@ gestisce gli imprevisti di sistema legati ai permessi di amministratore senza in
 la struttura visiva da terminale è chiara, geometrica e piacevole da leggere.
 
 📌 Nota importante
-
 Questo strumento opera modifiche dirette sui file presenti sul disco fisso (spostamenti ed eliminazioni). Si consiglia di utilizzare l'opzione cs (Copia di Sicurezza) prima di effettuare operazioni di pulizia radicale (fc).
 
 ✨ Suggerimenti per contributori GitHub
-
 espandere i dizionari delle estensioni inserendo formati multimediali o professionali più rari.
 
 perfezionare la formattazione dei messaggi di errore rendendoli ancora più descrittivi.
