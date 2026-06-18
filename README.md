@@ -18,7 +18,7 @@ Questo script consente di:
 
 Apri il terminale nella cartella del progetto.
 Esegui il file FileOrganizer.py con Python:
-```bash
+
 python FileOrganizer.py
 All'avvio, inserisci il percorso preciso della cartella su cui desideri lavorare. Il sistema verificherà subito che la directory sia esistente e valida.
 
