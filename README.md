@@ -1,91 +1,111 @@
-# Strumento di organizzazione file Py
+# FileOrganizer
 
-🎯 FileOrganizer è un potente strumento da riga di comando scritto in Python che aiuta a gestire, ordinare, ripulire e analizzare le cartelle locali in modo automatizzato e sicuro.
+🎯 **FileOrganizer** è un piccolo strumento da riga di comando scritto in Python che aiuta a organizzare, gestire e analizzare i file e le cartelle in una directory.
 
-🔍 Cosa fa
+## 🔍 Cosa fa
 
-Questo script consente di:
-* effettuare l'ordinamento intelligente dei file spostandoli in cartelle dedicate in base alla loro estensione (Documenti, Immagini, Video, Audio, Archivi, Applicazioni, Codice Sorgente, Modelli 3D).
-* isolare automaticamente i file con estensioni sconosciute all'interno di una directory protetta chiamata `Altri_File`.
-* scansionare e gestire esclusivamente le sottocartelle reali, ignorando i file sfusi presenti nella directory.
-* archiviare in blocco tutte le sottocartelle trovate dentro una cartella centrale denominata `ARCHIVIO_CARTELLE`.
-* raggruppare e spostare le sottocartelle all'interno di una nuova "Master Cartella" personalizzata dall'utente.
-* eseguire una pulizia rapida e la formattazione sicura dell'intera directory di lavoro, rimuovendo file e cartelle in un solo click.
-* analizzare nel dettaglio lo spazio totale occupato convertendo i dati in un formato leggibile (*Byte, KB, MB, GB*).
-* creare istantaneamente copie di sicurezza (backup) speculari della cartella per non rischiare mai di perdere i propri dati importanti.
+Questo script permette di:
 
-🚀 Come si usa
+- ordinare i file in cartelle per *categoria* in base alla loro *estensione*
+- identificare automaticamente il *tipo di file* (Documenti, Immagini, Video, Audio, ecc.)
+- gestire e *spostare le sottocartelle* in un'unica cartella di archiviazione
+- *rinominare* le sottocartelle in modo personalizzato
+- effettuare una *pulizia rapida* e *formattazione veloce* della directory
+- analizzare lo *spazio totale occupato* da file e cartelle
+- creare automaticamente *copie di sicurezza* (backup) della directory
 
-Apri il terminale nella cartella del progetto.
-Esegui il file FileOrganizer.py con Python:
+## 🚀 Come si usa
+
+1. Apri il terminale nella cartella del progetto.
+2. Esegui il file `FileOrganizer.py` con Python:
+
 ```bash
 python FileOrganizer.py
-All'avvio, inserisci il percorso preciso della cartella su cui desideri lavorare. Il sistema verificherà subito che la directory sia esistente e valida.
+```
 
-Nel menu principale puoi scegliere tra le opzioni disponibili:
+3. Il programma ti chiederà di inserire il percorso della directory da organizzare.
+4. Nel menu principale puoi scegliere:
 
-oi: avvia l'ordinamento automatico e intelligente di tutti i file presenti nella cartella.
+- `oi` : ordinamento file INTELLIGENTE per categoria e estensione
+- `sc` : gestione SOLO cartelle (sposta o rinomina le sottocartelle)
+- `fc` : pulizia rapida / formattazione veloce della directory
+- `ad` : analisi dettagliata dello spazio occupato
+- `cs` : copia di sicurezza (backup)
+- `e` : esci dal programma
 
-sc: accede al sottomenu dedicato alla gestione e archiviazione delle sole sottocartelle.
+## 🧠 Dettagli tecnici
 
-fc: permette di formattare velocemente la directory eliminando ogni file e sottocartella in essa contenuti.
+Lo script utilizza i moduli Python standard `os` e `shutil` per gestire file e cartelle in modo affidabile.
 
-ad: mostra un report analitico profondo con il conteggio di file, cartelle e lo spazio totale occupato sul disco.
+### Categorie supportate
 
-cs: crea una copia di backup esatta della cartella di lavoro, posizionandola in sicurezza nella directory madre.
+- **Documenti**: `.txt`, `.pdf`, `.doc`, `.docx`, `.odt`, `.rtf`, `.xls`, `.xlsx`, `.ods`, `.csv`, `.ppt`, `.pptx`, `.odp`, `.epub`, `.mobi`, `.azw3`
+- **Immagini**: `.jpg`, `.jpeg`, `.png`, `.gif`, `.bmp`, `.tiff`, `.webp`, `.svg`, `.ai`, `.eps`, `.psd`, `.xcf`, `.ico`
+- **Video**: `.mp4`, `.mkv`, `.avi`, `.mov`, `.wmv`, `.flv`, `.mpeg`, `.3gp`, `.webm`
+- **Audio**: `.mp3`, `.wav`, `.wma`, `.ogg`, `.flac`, `.m4a`, `.aac`, `.mid`
+- **Archivi**: `.zip`, `.rar`, `.7z`, `.tar`, `.gz`, `.iso`
+- **Applicazioni e Installatori**: `.exe`, `.msi`, `.apk`, `.bat`, `.cmd`, `.sh`
+- **Codice Sorgente**: `.py`, `.pyw`, `.html`, `.htm`, `.css`, `.js`, `.ts`, `.c`, `.cpp`, `.h`, `.hpp`, `.java`, `.cs`, `.json`, `.xml`, `.yaml`, `.yml`
+- **Modelli 3D**: `.stl`, `.obj`, `.fbx`, `.3ds`
+- **File sconosciuti**: vengono spostati automaticamente in una cartella `Altri_File`
 
-e: chiude in modo sicuro i processi ed esce dal programma.
+### Funzioni principali
 
-🧠 Dettagli tecnici
-Lo script utilizza esclusivamente moduli nativi della libreria standard di Python, garantendo la massima compatibilità senza richiedere installazioni di terze parti:
+- **Ordinamento Intelligente (oi)**: scandisce la directory, identifica ogni file e lo sposta nella cartella appropriata
+- **Gestione Cartelle (sc)**: consente di raggruppare le sottocartelle o rinominarle con un nome personalizzato
+- **Pulizia Formattazione (fc)**: elimina tutto il contenuto della directory dopo conferma dell'utente
+- **Analisi Dettagliata (ad)**: conta file e cartelle, calcola lo spazio totale in Byte, KB, MB o GB
+- **Backup (cs)**: crea una copia completa della directory con suffisso `_BACKUP`
 
-os: utilizzato per mappare i percorsi, verificare la validità delle cartelle, scansionare l'albero delle directory con os.walk e calcolare i pesi dei singoli file.
+## 💡 Esempio d'uso
 
-shutil: impiegato per le operazioni ad alto livello sui file, come il trasferimento sicuro (shutil.move), la clonazione di alberi di directory per il backup (shutil.copytree) e la rimozione forzata (shutil.rmtree).
+- Esegui il programma
+- Inserisci il percorso: `C:\Users\TuoNome\Desktop\FilesDaOrganizzare`
+- Scegli `oi` per ordinare i file
+- Il programma creerà automaticamente le cartelle necessarie e sposterà i file
 
-sys: sfruttato per gestire la terminazione pulita dello script all'uscita dell'utente.
+Il programma mostrerà:
 
-Il sistema include una robusta gestione delle eccezioni (PermissionError, FileNotFoundError, OSError), assicurando che il programma non crashi mai in caso di file di sistema protetti o bloccati, notificando l'utente e proseguendo il lavoro.
+- Elenco di tutti i file trovati
+- Categoria e estensione di ciascun file
+- Conferma dello spostamento con emoji 🚚
+- Avvisi per file sconosciuti
 
-💡 Esempio d'uso
-Avvia il programma e digita il percorso della tua cartella disordinata (es: C:\Utenti\Nome\Download).
+## 🛠️ Possibili modifiche future
 
-Scegli l'opzione oi dal menu principale.
+Questa versione è già utile, ma può essere migliorata per diventare uno strumento ancora più completo per gli utenti:
 
-Il programma mostrerà a schermo l'elenco dei file rilevati con le relative estensioni e li sposterà in tempo reale.
+- aggiungere la ricerca **ricorsiva avanzata** con filtri per nome file e data di modifica
+- includere il supporto per **regole personalizzate** salvabili in file di configurazione
+- implementare la **rinomina in batch** di file con pattern specifici
+- aggiungere un'interfaccia a menu più moderna con **colori ANSI** e output formattato
+- salvare i report di analisi su file `.txt` o `.csv`
+- supportare il caricamento di **profili di organizzazione** pre-configurati
+- implementare un sistema di **log dettagliato** di tutte le operazioni effettuate
+- aggiungere la possibilità di **annullare le operazioni** (undo)
+- supportare la ricerca e l'eliminazione di **file duplicati**
+- integrare il monitoraggio di **cartelle in tempo reale** con auto-organizzazione
 
-Al termine del processo, all'interno della cartella troverai i tuoi file perfettamente suddivisi in cartelle ordinate come Documenti, Immagini, Codice_Sorgente o Altri_File.
+## ✅ Perché usarlo
 
-🛠️ Possibili modifiche future
-Questa versione è già estremamente stabile e performante, ma può essere espansa con nuove funzioni avanzate:
+- è facile da usare anche per chi non è esperto
+- fornisce risultati completi e leggibili con emoji e messaggi informativi
+- è utile per chi vuole mantenere il PC ordinato e organizzato
+- il menu è strutturato e guidato step-by-step
+- supporta moltissime estensioni di file diverse
+- è perfetto per pulire desktop e cartelle Download
 
-implementare un sistema di logging automatico su file .log per tenere traccia di ogni file spostato o eliminato.
+## 📌 Nota importante
 
-aggiungere filtri temporali (es: ordina o elimina solo i file creati più di 30 giorni fa).
+Questo strumento è pensato per gestire directory locali su Windows, macOS e Linux. Usalo con cautela quando esegui la pulizia (fc) in quanto l'operazione è irreversibile.
 
-includere la gestione dei file duplicati, confrontandone le dimensioni o l'hash per eliminare i doppioni che sprecano spazio.
+## ✨ Suggerimenti per contributori GitHub
 
-sviluppare un'interfaccia grafica moderna (GUI) in aggiunta alla modalità da riga di comando.
+- migliorare i messaggi di errore con più dettagli diagnostici
+- aggiungere controlli più robusti per permessi e accessi negati
+- introdurre funzionalità di **sincronizzazione** tra cartelle
+- creare una versione con output in **HTML** formattato con tabelle e grafici
+- aggiungere il supporto per **cloud storage** (Google Drive, OneDrive, ecc.)
 
-integrare un sistema di compressione automatico che converte in formato .zip o .rar le cartelle archiviate.
+Buon lavoro con `FileOrganizer`! 🖥️📁
 
-✅ Perché usare
-è nativo, leggero e sicuro: non richiede pacchetti esterni o connessione internet.
-
-previene le distrazioni dell'utente convertendo gli input e accettando percorsi puliti dalle virgolette.
-
-gestisce gli imprevisti di sistema legati ai permessi di amministratore senza interrompere l'esecuzione.
-
-la struttura visiva da terminale è chiara, geometrica e piacevole da leggere.
-
-📌 Nota importante
-Questo strumento opera modifiche dirette sui file presenti sul disco fisso (spostamenti ed eliminazioni). Si consiglia di utilizzare l'opzione cs (Copia di Sicurezza) prima di effettuare operazioni di pulizia radicale (fc).
-
-✨ Suggerimenti per contributori GitHub
-espandere i dizionari delle estensioni inserendo formati multimediali o professionali più rari.
-
-perfezionare la formattazione dei messaggi di errore rendendoli ancora più descrittivi.
-
-ottimizzare i processi di scansione per incrementare la velocità di analisi su directory con decine di migliaia di file.
-
-Buon lavoro con FileOrganizer! 🖥️📂
